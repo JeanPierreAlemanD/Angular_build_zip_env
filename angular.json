@@ -49,6 +49,27 @@
               ],
               "outputHashing": "all"
             },
+            "qa": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.qa.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
             "development": {
               "buildOptimizer": false,
               "optimization": false,
@@ -58,7 +79,7 @@
               "namedChunks": true
             }
           },
-          "defaultConfiguration": "production"
+          "defaultConfiguration": ""
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
@@ -68,6 +89,9 @@
             },
             "development": {
               "browserTarget": "angular-build-zip-env:build:development"
+            },
+            "qa": {
+              "browserTarget": "angular-build-zip-env:build:qa"
             }
           },
           "defaultConfiguration": "development"
@@ -97,5 +121,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "32548133-e05a-4bea-bed1-b5bee7286d1b"
   }
 }

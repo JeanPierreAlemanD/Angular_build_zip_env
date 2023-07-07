@@ -1,9 +1,20 @@
 {
-  "name": "angular-build-zip-env",
+  "name": "angular-zip",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
+    "auto": "node dev_tools/auto-dist.js",
     "start": "ng serve",
+    "start-qa": "ng serve --c=qa",
+
+    "build-dev": "ng build --output-path=dist/dev/angular-zip",
+    "build-qa": "ng build --c=qa --output-path=dist/qa/angular-zip",
+    "build-prod": "ng build --c=production --output-path=dist/prod/angular-zip",
+
+    "build-zip-dev": "npm run build-dev && node dev_tools/auto-dist.js environment=dev",
+    "build-zip-qa": "npm run build-qa &&  node dev_tools/auto-dist.js environment=qa",
+    "build-zip-prod": "npm run build-prod && node dev_tools/auto-dist.js environment=prod",
+
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
@@ -20,6 +31,7 @@
     "@angular/router": "^14.2.0",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
+    "zip-a-folder": "^2.0.0",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
@@ -36,3 +48,4 @@
     "typescript": "~4.7.2"
   }
 }
+
